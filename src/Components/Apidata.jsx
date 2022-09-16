@@ -19,6 +19,13 @@ export const Apidata = () => {
     setData(result);
   };
 
+  const handleEdit = (ind) => {
+    // passing the list of employees to add emp component using state
+    // this data accessed through useLocation() on the add emp component
+    navigate("/edit-employee", {
+      state: { data },
+    });
+  };
   const handlenext = () => {
     // passing the list of employees to add emp component using state
     // this data accessed through useLocation() on the add emp component
@@ -58,6 +65,9 @@ export const Apidata = () => {
                 <h2>ID:{item.id}</h2>
                 <Button variant="contained" onClick={() => handledelete(ind)}>
                   Delete
+                </Button>
+                <Button variant="contained" onClick={() => handleEdit(ind)}>
+                  Edit
                 </Button>
               </CardContent>
             </Card>
