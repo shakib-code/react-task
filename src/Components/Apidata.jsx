@@ -20,6 +20,8 @@ export const Apidata = () => {
   };
 
   const handlenext = () => {
+    // passing the list of employees to add emp component using state
+    // this data accessed through useLocation() on the add emp component
     navigate("/addemployee", {
       state: { data },
     });
