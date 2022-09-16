@@ -5,24 +5,25 @@ import { useLocation } from "react-router-dom";
 import { Grid, Card, CardContent, Avatar } from "@mui/material";
 
 export const Addemployee = () => {
-  const rcvd = useLocation();
+  const location = useLocation();
   const [data, setdata] = useState([]);
   const [empdata, setEmpdata] = useState({});
 
   useEffect(() => {
-    localStorage.setItem("data", JSON.stringify(data));
-  }, [data]);
-  const local = localStorage.getItem(data);
-  console.log("hello", local);
+    // use location object to get the list of emp which is sent from apidata.jsx
+    if (location?.state) {
+      setdata(location?.state.data);
+    }
+  }, []);
 
   const handlesave = () => {
     setdata([empdata, ...data]);
+    console.log("Emp saved. So new Emp List Size is:", data.length);
   };
   const handleremove = (item) => {
     const Filtered = data.filter((elem) => elem !== item);
     setdata([...Filtered]);
   };
-
   return (
     <div>
       <div style={{ margin: "30px", paddingLeft: "40%", fontSize: "30px" }}>
