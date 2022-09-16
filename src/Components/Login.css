@@ -1,0 +1,22 @@
+.mainDiv{
+position: relative;
+display: flex;
+justify-content: center;
+align-items: center;
+border: 1px solid blue;
+width: 400px ;
+height: 400px;
+margin: auto;
+border-radius: 20px ;
+}
+
+
+.usererror{
+    color: red;
+    margin-top: -10px;
+}
+
+.passerror{
+    color: red;
+    margin-top: -10px;
+}
