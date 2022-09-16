@@ -16,7 +16,6 @@ export const Apidata = () => {
   };
   const handledelete = (ind) => {
     const result = data.filter((item, i) => i !== ind);
-    console.log(result.length);
     setData(result);
   };
 
@@ -30,6 +29,14 @@ export const Apidata = () => {
     getData();
   }, []);
 
+  useEffect(() => {
+    // fetch data when you delete all the records(in other words, local data is absent)
+    // from your local storage
+    if (data.length === 0) {
+      getData();
+    }
+  }, [data]);
+
   return (
     <div>
       <Button variant="contained" onClick={handlenext}>
@@ -39,7 +46,7 @@ export const Apidata = () => {
 
       <Grid container spacing={3}>
         {data.map((item, ind) => (
-          <Grid item xs={4}>
+          <Grid key={ind} item xs={4}>
             <Card>
               <CardContent>
                 <Avatar src={item.avatar_url} />
