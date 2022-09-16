@@ -50,10 +50,10 @@ export const LogIn = () => {
             setUserError("Your data doesnot match");
           }
         } else {
-          setPasswordError("inviled Password");
+          setPasswordError("invalid Password");
         }
       } else {
-        setUserError("inviled User");
+        setUserError("invalid User");
       }
     } else {
       setUserError("User Required");
